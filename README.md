@@ -31,28 +31,33 @@ With paysage, you can easily assess issues such as missing values, outliers and 
 
 ## Key components
 ```mermaid
-flowchart TD
-    dq_report[[dq_report]] --> classify_columns
-    dq_report --> write_to_html
-    dq_report --> left_subtract
+graph TD
+    A[Data] --> B[dq_report]
+    B -->|uses| C[classify_columns]
+    C -->|uses| D[left_subtract]
+    C -->|uses| E[EDA_find_remove_columns_with_infinity]
+    B --> F[Generate DQ Report]
+    F -->|output| G[HTML Report via write_to_html]
+    B --> H[Identify Issues]
+    H -->|input| I[Fix_DQ Transformer]
+    I -->|transforms| J[Clean Data]
+    K[DataSchemaChecker] -->|validates| L[Data Schema]
+    K -->|transforms| M[Adjusted Data]
+    N[dc_report] -->|uses| O[dq_report Train]
+    N -->|uses| P[dq_report Test]
+    O --> Q[Compare Distributions]
+    P --> Q
+    Q --> R[DC Report]
+    R -->|output| G
 
-    classify_columns[[classify_columns]] --> EDA_find_remove_columns_with_infinity
-    classify_columns --> left_subtract
-
-    dc_report[[dc_report]] --> dq_report
-    dc_report --> write_to_html
-    dc_report --> left_subtract
-    dc_report --> compare_unique
-
-    Fix_DQ[[Fix_DQ]] --> left_subtract
-
-    DataSchemaChecker[[DataSchemaChecker]]
-
-    %% Helper Functions
-    write_to_html[[write_to_html]]
-    left_subtract[[left_subtract]]
-    compare_unique[[compare_unique]]
-    EDA_find_remove_columns_with_infinity[[EDA_find_remove_columns_with_infinity]]
+    classDef report fill:#141d47,stroke:#007bff;
+    classDef transformer fill:#6e0711,stroke:#28a745;
+    classDef function fill:#690700,stroke:#ffc107;
+    classDef helper fill:#085252,stroke:#dc3545;
+    class B,N function;
+    class C,D,E helper;
+    class I,K transformer;
+    class G,R report;
 ```
 
 `paysage` is organized into several core modules:
