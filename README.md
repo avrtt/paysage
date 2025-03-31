@@ -1,6 +1,6 @@
 ver. 1.02 (beta) - <u>Documentation</u> **(WIP)**: **[🇺🇸 EN]()** | **[🇷🇺 RU]()**
 
-> This library is planned to be merged with [Gnomych](https://github.com/avrtt/gnomych), my other data analytics toolkit. Gnomych classes will become a part of the main branch since 1.2 version.
+> This library is planned to be merged with [Gnomych](https://github.com/avrtt/gnomych), my other data analysis toolkit. Gnomych classes will become a part of the main branch since 1.2 version.
 
 <br/>
 
