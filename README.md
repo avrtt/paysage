@@ -9,10 +9,10 @@ ver. 1.02 (beta) - <u>Documentation</u> **(WIP)**: **[🇺🇸 EN]()** | **[🇷
 - [Introduction](#introduction)
 - [Key components](#key-components)
 - [Use cases](#use-cases)
-  - [1. Data quality report](#1-🔎-data-quality-report-dq_report)
-  - [2. Data comparison report](#2-⚖️-data-comparison-report-dc_report)
-  - [3. Data cleaning](#3-🔧-data-cleaning-with-fix_dq)
-  - [4. Schema validation](#4-📋-schema-validation-with-dataschemachecker)
+  - [🔎 Data quality report](#1-data-quality-report-dq_report)
+  - [⚖️ Data comparison report](#2-data-comparison-report-dc_report)
+  - [🔧 Data cleaning](#3-data-cleaning-with-fix_dq)
+  - [📋 Schema validation](#4-schema-validation-with-dataschemachecker)
 - [Installation](#installation)
 - [Usage](#usage)
 - [API](#api-overview)
@@ -73,7 +73,7 @@ graph TD
 
 ## Use cases
 
-### 1. 🔎 Data quality report (`dq_report`)
+### 1. Data quality report (`dq_report`)
 
 The `dq_report` function generates a comprehensive report (either inline or as an HTML file) by scanning your dataset for:
 - ID columns, zero-variance features and rare categories (less than 5% representation)
@@ -85,7 +85,7 @@ The `dq_report` function generates a comprehensive report (either inline or as a
 
 For very large datasets, a sample of 100K rows is used by default. If you prefer full-data analysis, load your data into a DataFrame before passing it to the function.
 
-### 2. ⚖️ Data comparison report (`dc_report`)
+### 2. Data comparison report (`dc_report`)
 
 The `dc_report` tool accepts two DataFrames (e.g., train and test) and generates a comparison report by:
 - Running `dq_report` on each DataFrame to compare their data quality metrics
@@ -95,7 +95,7 @@ The `dc_report` tool accepts two DataFrames (e.g., train and test) and generates
 
 > Tip: for large datasets, consider sampling your data before using this report tool.
 
-### 3. 🔧 Data cleaning with `Fix_DQ`
+### 3. Data cleaning with `Fix_DQ`
 
 The `Fix_DQ` class is a one-stop solution to clean your data before modeling. It's implemented as a `scikit-learn` transformer and can be integrated into your ML pipelines. During the `fit` process, it:
 - Removes ID and zero-variance columns
@@ -106,7 +106,7 @@ The `Fix_DQ` class is a one-stop solution to clean your data before modeling. It
 
 > **Integrate with GridSearchCV:** Use `Fix_DQ` in your hyperparameter tuning pipelines (e.g., with GridSearchCV) to select the best data cleaning strategy alongside your model.
 
-### 4. 📋 Schema validation with `DataSchemaChecker`
+### 4. Schema validation with `DataSchemaChecker`
 
 The `DataSchemaChecker` transformer ensures that your data conforms to a predefined schema. You simply:
 1. Define a schema (a dictionary mapping column names to expected data types)
