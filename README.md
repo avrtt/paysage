@@ -277,6 +277,8 @@ A `scikit-learn` transformer that cleans your data by addressing issues such as:
 - Split code by modules, create utils.py for helper functions
 - Implement more classes for better logic
 - Implement more advanced methods
+- Add `jsonschema>=3.0.0`
+- Implement unit tests
 
 ## Contributing
 Contributions are welcome. Feel free to open PRs and issues.
